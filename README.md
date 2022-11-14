@@ -18,7 +18,7 @@ This repository contains some tools to help with thin-edge.io development, for e
 
 3. Add the local folder path (from the previous step) to your VSCode configurations
 
-    ```json
+    ```jsonc
     {
         // ... your existing settings.json details
 
