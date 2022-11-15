@@ -34,7 +34,10 @@
 				"mutantdino.resourcemonitor",
 				"matklad.rust-analyzer",
 				"tamasfe.even-better-toml",
-				"serayuzgur.crates"
+				"serayuzgur.crates",
+				"timonwong.shellcheck",
+				"github.vscode-pull-request-github",
+				"eamodio.gitlens"
 			]
 		}
 	},
