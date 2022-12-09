@@ -37,7 +37,8 @@
 				"serayuzgur.crates",
 				"timonwong.shellcheck",
 				"github.vscode-pull-request-github",
-				"eamodio.gitlens"
+				"eamodio.gitlens",
+				"d-biehl.robotcode"
 			]
 		}
 	},

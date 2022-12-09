@@ -12,7 +12,8 @@ RUN apt-get update && export DEBIAN_FRONTEND=noninteractive \
         equivs \
         dpkg-dev \
         fakeroot \
-        docker
+        docker \
+        python3
 
 # Install docker cli
 RUN mkdir -p /etc/apt/keyrings \
