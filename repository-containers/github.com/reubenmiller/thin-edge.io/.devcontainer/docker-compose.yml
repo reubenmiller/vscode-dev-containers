@@ -1,0 +1,15 @@
+version: '3'
+services:
+  tedge:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      args: 
+        VARIANT: bullseye
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+    command: /bin/sleep infinity
+    cap_add:
+      - SYS_PTRACE
+    security_opt:
+      - seccomp:unconfined
