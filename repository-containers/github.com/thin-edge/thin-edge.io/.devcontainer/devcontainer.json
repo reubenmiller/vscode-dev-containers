@@ -2,6 +2,8 @@
 // https://github.com/microsoft/vscode-dev-containers/tree/v0.195.0/containers/rust
 {
 	"name": "thin-edge.io",
+	// Must be set to false, otherwise the cmd (or entrypoint) will not be PID 1 which is required by systemd
+	"overrideCommand": false,
 	"dockerComposeFile": "docker-compose.yml",
 	// The 'service' property is the name of the service for the container that VS Code should
 	// use. Update this value and .devcontainer/docker-compose.yml to the real service name.

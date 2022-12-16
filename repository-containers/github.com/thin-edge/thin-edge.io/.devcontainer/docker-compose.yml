@@ -8,8 +8,10 @@ services:
         VARIANT: bullseye
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
-    command: /bin/sleep infinity
-    cap_add:
-      - SYS_PTRACE
-    security_opt:
-      - seccomp:unconfined
+      - tedge-bashhistory:/commandhistory
+      - device-certs:/etc/tedge/device-certs
+    privileged: true
+
+volumes:
+  tedge-bashhistory:
+  device-certs:
