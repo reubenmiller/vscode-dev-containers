@@ -12,18 +12,25 @@ RUN apt-get update && export DEBIAN_FRONTEND=noninteractive \
         equivs \
         dpkg-dev \
         fakeroot \
-        docker
+        # Testing dependencies
+        docker \
+        python3 \
+        python3-pip
 
 # Install docker cli
 RUN mkdir -p /etc/apt/keyrings \
     && curl -fsSL https://download.docker.com/linux/debian/gpg | sudo gpg --dearmor -o /etc/apt/keyrings/docker.gpg \
     && echo "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.gpg] https://download.docker.com/linux/debian $(lsb_release -cs) stable" | tee /etc/apt/sources.list.d/docker.list > /dev/null \
     && apt-get update \
-    && apt-get install -y docker-ce-cli
+    && apt-get install -y docker-ce-cli docker-compose-plugin
+
+# Node js (for browser based tests)
+RUN curl -fsSL https://deb.nodesource.com/setup_18.x | bash - \
+    && apt-get install -y nodejs
 
 # Install cargo packages under non-root user
 USER vscode
-RUN cargo install cargo-deb --version 1.38.1 \
+RUN cargo install cargo-deb --version 1.41.3 \
     && cargo install cross
 
 # Enable cross-rs to compile using docker-in-docker
