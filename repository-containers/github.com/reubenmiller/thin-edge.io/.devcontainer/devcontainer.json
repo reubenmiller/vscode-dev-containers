@@ -4,10 +4,12 @@
 	"name": "thin-edge.io",
 	// Must be set to false, otherwise the cmd (or entrypoint) will not be PID 1 which is required by systemd
 	"overrideCommand": false,
-	"dockerComposeFile": "docker-compose.yml",
+
+	// Docker Compose
 	// The 'service' property is the name of the service for the container that VS Code should
 	// use. Update this value and .devcontainer/docker-compose.yml to the real service name.
 	"service": "tedge",
+	"dockerComposeFile": "docker-compose.yml",
 
 	// Configure tool-specific properties.
 	"customizations": {
@@ -20,7 +22,28 @@
 				"files.watcherExclude": {
 					"**/target/**": true
 				},
-				"rust-analyzer.checkOnSave.command": "clippy"
+				"rust-analyzer.checkOnSave.command": "clippy",
+
+				// python
+				"python.defaultInterpreterPath": "${workspaceFolder}/venv/bin/python",
+				"python.envFile": "${workspaceFolder}/.env",
+				"python.languageServer": "Default",
+				"python.linting.enabled": true,
+				"python.linting.pylintEnabled": true,
+				"python.formatting.provider": "black",
+				"python.formatting.blackPath": "black",
+				"python.linting.pydocstylePath": "/usr/local/py-utils/bin/pydocstyle",
+				"python.testing.unittestEnabled": false,
+				"python.testing.pytestEnabled": false,
+				"python.linting.pylintPath": "pylint",
+				"robotcode.robot.mode": "norpa",
+				"robotcode.robot.args": [
+					// "--loglevel=DEBUG"
+				],
+				// "python.testing.pytestArgs": [
+				// 	"integration",
+				// 	"--log-cli-level=INFO"
+				// ]
 			},
 			
 			// Add the IDs of extensions you want installed when the container is created.
@@ -30,10 +53,18 @@
 				"matklad.rust-analyzer",
 				"tamasfe.even-better-toml",
 				"serayuzgur.crates",
+				// Shell script validation
 				"timonwong.shellcheck",
-				"github.vscode-pull-request-github",
+				// Containers
+				"ms-azuretools.vscode-docker",
+				// SCM
 				"eamodio.gitlens",
-				"ms-azuretools.vscode-docker"
+				"github.vscode-pull-request-github",
+				// python
+				"ms-python.python",
+				"ms-python.vscode-pylance",
+				"njpwerner.autodocstring",
+				"d-biehl.robotcode"
 			]
 		}
 	},

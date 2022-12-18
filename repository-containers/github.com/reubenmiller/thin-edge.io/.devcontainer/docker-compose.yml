@@ -6,11 +6,29 @@ services:
       dockerfile: Dockerfile
       args: 
         VARIANT: bullseye
+    environment:
+      - DOCKER_HOST=unix:///opt/run/docker.sock
+
+    # Option 1: Use privileged container (for dev purposes only!)
     volumes:
-      - /var/run/docker.sock:/var/run/docker.sock
+      # Mount docker socker to something other that /var/run as a
+      # a privileged container or with CAP_SYS_ADMIN overwrites this
+      - /var/run/docker.sock:/opt/run/docker.sock
       - tedge-bashhistory:/commandhistory
       - device-certs:/etc/tedge/device-certs
     privileged: true
+
+    # Option 2: Only mount cgroup as readonly (but requires it to already exist)
+    # privileged: true
+    # volumes:
+    #   # Mount docker socker to something other that /var/run as a
+    #   # a privileged container or with CAP_SYS_ADMIN overwrites this
+    #   - /var/run/docker.sock:/opt/run/docker.sock
+    #   - tedge-bashhistory:/commandhistory
+    #   - device-certs:/etc/tedge/device-certs
+    #   - /sys/fs/cgroup:/sys/fs/cgroup:ro
+    # cap_add:
+    #   - CAP_SYS_ADMIN
 
 volumes:
   tedge-bashhistory:
