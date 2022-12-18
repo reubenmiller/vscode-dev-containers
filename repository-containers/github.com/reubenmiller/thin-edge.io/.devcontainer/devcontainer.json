@@ -64,7 +64,9 @@
 				"ms-python.python",
 				"ms-python.vscode-pylance",
 				"njpwerner.autodocstring",
-				"d-biehl.robotcode"
+				// Robot Framework
+				"robocorp.robocorp-code",
+				"robocorp.robotframework-lsp"
 			]
 		}
 	},
