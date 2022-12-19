@@ -19,7 +19,9 @@ RUN apt-get update && export DEBIAN_FRONTEND=noninteractive \
         python3 \
         python3-pip \
         # tedge dependencies
-        mosquitto
+        mosquitto \
+        # Utilities
+        xdg-utils
 
 # Install docker cli
 RUN mkdir -p /etc/apt/keyrings \
