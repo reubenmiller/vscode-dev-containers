@@ -25,7 +25,7 @@
 				"rust-analyzer.checkOnSave.command": "clippy",
 
 				// python
-				"python.defaultInterpreterPath": "${workspaceFolder}/tests/RobotFramework/venv/bin/python",
+				"python.defaultInterpreterPath": "${workspaceFolder}/tests/RobotFramework/.venv/bin/python",
 				"python.envFile": "${workspaceFolder}/.env",
 				"python.languageServer": "Default",
 				"python.linting.enabled": true,

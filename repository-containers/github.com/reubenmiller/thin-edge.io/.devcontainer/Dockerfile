@@ -18,7 +18,6 @@ RUN apt-get update && export DEBIAN_FRONTEND=noninteractive \
         docker \
         python3 \
         python3-pip \
-        python3-venv \
         # tedge dependencies
         mosquitto
 
@@ -32,6 +31,10 @@ RUN mkdir -p /etc/apt/keyrings \
 # Node js (for browser based tests)
 RUN curl -fsSL https://deb.nodesource.com/setup_18.x | bash - \
     && apt-get install -y nodejs
+
+# Update python deps
+RUN pip3 install --upgrade pip \
+    && pip3 install pipenv
 
 # Delete the dummy systemctl command added by the base image
 RUN rm -f /usr/local/bin/systemctl
